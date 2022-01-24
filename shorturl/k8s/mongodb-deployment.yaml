@@ -23,20 +23,7 @@ spec:
         
         volumeMounts:
           - name: mongo-persistent-storage
-            mountPath: /data/db
-        
-        env:
-          - name: MONGO_ROOT_USERNAME
-            valueFrom:
-              secretKeyRef:
-                name: mongodb-secret
-                key: mongo-root-username
-            
-          - name: MONGO_ROOT_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: mongodb-secret
-                key: mongo-root-password  
+            mountPath: /data/db 
         
       volumes:
         - name: mongo-persistent-storage

@@ -1,3 +1,4 @@
+eval $(minikube docker-env)
 docker build -t yasamanhbn/final_shorturl .
 
 minikube start
@@ -24,3 +25,7 @@ kubectl delete deployment  mongo-express-deployment
 kubectl delete pods --all
 
 
+
+
+#HPA
+kubectl autoscale sts mongodb-replica --cpu-percent=50 --min=1 --max=4

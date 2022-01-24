@@ -3,6 +3,8 @@ const express = require('express')
 const shortid = require('shortid')
 const Url = require('./models/Url')
 const mongoose = require('mongoose')
+const dotenv = require('dotenv');
+dotenv.config();
 
 const data = require('./app/config/config.json')
 
@@ -78,9 +80,9 @@ app.post('/post-url', async (req, res) => {
 
 mongoose.connect(data.DB_URI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true ,
-    user: data.user,
-    pass: data.pwd
+    useUnifiedTopology: true,
+    user: 'user',
+    pass: 'pass'
 })
 
 const connection = mongoose.connection

@@ -6,6 +6,6 @@ data:
   production-config.json: |
     {
       "port" : 8080,
-      "expireTime":12,
+      "expireTime":120,
       "DB_URI" : "mongodb://mongodb-service:27017"
     }

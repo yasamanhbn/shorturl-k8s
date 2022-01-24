@@ -13,7 +13,7 @@ COPY . .
 FROM node:14.15.0-alpine
 
 COPY --from=build /app /
-EXPOSE 3000
+EXPOSE 8080
 CMD ["npm", "start"]
 
 
