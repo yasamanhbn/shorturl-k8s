@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: shorturl-config
+data:
+  production-config.json: |
+    {
+      "port" : 8080,
+      "expireTime":12,
+      "DB_URI" : "mongodb://mongodb-service:27017"
+    }

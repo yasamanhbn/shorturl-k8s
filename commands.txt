@@ -1,0 +1,26 @@
+docker build -t yasamanhbn/final_shorturl .
+
+minikube start
+
+# in k8s folder:
+kubectl apply -f config-map.yaml
+kubectl apply -f mongodb-secret.yaml
+kubectl apply -f mongo-volume.yaml
+kubectl apply -f mongo-claim.yaml
+kubectl apply -f mongodb-deployment.yaml
+kubectl apply -f mongodb-service.yaml
+kubectl apply -f mongo-express-deployment.yaml
+
+#
+kubectl get service
+kubectl get deployment
+kubectl get pod -o wide
+
+#restart deployment after change sth 
+kubectl rollout restart deployment
+
+#delete
+kubectl delete deployment  mongo-express-deployment
+kubectl delete pods --all
+
+
