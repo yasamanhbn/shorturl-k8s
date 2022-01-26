@@ -8,9 +8,10 @@ kubectl apply -f config-map.yaml
 kubectl apply -f mongodb-secret.yaml
 kubectl apply -f mongo-volume.yaml
 kubectl apply -f mongo-claim.yaml
-kubectl apply -f mongodb-deployment.yaml
+kubectl apply -f mongodb-deployment.yaml  OR kubectl apply -f statefulset.yaml
 kubectl apply -f mongodb-service.yaml
 kubectl apply -f mongo-express-deployment.yaml
+
 
 #
 kubectl get service
@@ -18,14 +19,25 @@ kubectl get deployment
 kubectl get pod -o wide
 
 #restart deployment after change sth 
+kubectl rollout restart deployment mongo-express-deployment
 kubectl rollout restart deployment
 
 #delete
+kubectl delete statefulset mongodb-deployment
 kubectl delete deployment  mongo-express-deployment
+kubectl delete service mongodb-service
+kubectl delete service mongo-express-service
 kubectl delete pods --all
+
 
 
 
 
 #HPA
 kubectl autoscale sts mongodb-replica --cpu-percent=50 --min=1 --max=4
+
+
+
+          limits:
+            cpu: 1
+            memory: 1500Mi

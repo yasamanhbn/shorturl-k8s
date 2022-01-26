@@ -11,7 +11,7 @@ const data = require('./app/config/config.json')
 
 const app = express()
 
-const baseUrl = 'localhost:' + data.port
+const baseUrl = '/'
 app.use(express.urlencoded({ extended: false }));
 
 
@@ -81,8 +81,8 @@ app.post('/post-url', async (req, res) => {
 mongoose.connect(data.DB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    user: 'user',
-    pass: 'pass'
+    user: process.env.CONFIG_MONGODB_USERNAME,
+    pass: process.env.CONFIG_MONGODB_ADMINPASSWORD
 })
 
 const connection = mongoose.connection
